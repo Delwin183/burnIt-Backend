@@ -1,0 +1,77 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id                String       @id @default(auto()) @map("_id") @db.ObjectId
+  name              String?
+  email             String       @unique
+  image             String?
+  address           String?
+  InfoUser          InfoUser[]
+  posts             Post[]
+}
+
+model InfoUser {
+  id                String       @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String       @db.ObjectId
+  genre             genretype?
+  age               Boolean
+  weight            Boolean
+  height            Boolean
+  goal              goal?
+  experience        experience?
+  User              User         @relation(fields: [userId], references: [id])
+
+
+}
+
+
+
+// Falta trabajar el modelo Post 
+model Post {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  slug     String    @unique
+  title    String
+  body     String
+  author   User      @relation(fields: [authorId], references: [id])
+  authorId String    @db.ObjectId
+}
+
+
+enum genretype {
+  man 
+  woman
+  boths
+}
+
+enum goal {
+  gain_muscles 
+  lower_fat_percentage
+  muscle_definition
+}
+
+enum experience {
+  beginner
+  medium
+  advanced
+}
+
+
+enum type_of_user {
+  student
+  trainer
+  doctor
+}
+
+
+
+
