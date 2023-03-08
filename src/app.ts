@@ -1,6 +1,6 @@
-const { express } = require("express");
-import morgan from "morgan";
-import cors from "cors";
+export const express = require("express");
+export const morgan = require("morgan");
+export const cors = require("cors");
 
 const routes = require("./routes/index");
 
