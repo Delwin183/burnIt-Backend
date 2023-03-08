@@ -1,6 +1,6 @@
-const prisma = require("../db");
+import prisma from "../db";
 
-export async function prueba() {
+export default async function prueba() {
   await prisma.user.create({
     data: {
       name: "Rich",
