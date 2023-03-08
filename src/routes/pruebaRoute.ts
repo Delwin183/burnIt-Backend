@@ -1,7 +1,7 @@
 import express from "express";
 const router = express.Router();
 
-const prueba = require("../controllers/prueba");
+import prueba from "../controllers/prueba";
 
 router.get("/", async (req, res) => {
   try {
