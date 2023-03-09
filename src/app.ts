@@ -4,7 +4,7 @@ const cors = require("cors");
 
 const routes = require("./routes/index");
 
-const server = express();
+const server: express.Application = express();
 
 server.set("name", "burnIt Api");
 server.use(express.json());
