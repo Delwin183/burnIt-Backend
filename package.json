@@ -5,8 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "build": "rimraf ./build && tsc",
-    "dev": "nodemon index.js",
-    "start": "node build/index.js"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
